@@ -25,4 +25,13 @@ public interface JobRepository extends JpaRepository<Job, Double> {
             "ORDER BY count(e.department_id) DESC;",
             nativeQuery = true)
     List<SalarioxDptoDto> obtenerMySalarioxDptoDto();
+
+    @Query(value = "select concat(e.first_name, ' ',e.last_name) as 'empleado', \n" +
+            "e.salary as 'Salario actual', MIN(j.min_salary) as 'Salario minimo', MAX(j.min_salary)  as 'Salario maximo', \n" +
+            "IF(((j.min_salary  >= e.salary)or ( (1.05*e.salary)>= j.min_salary)), 1.08*e.salary, e.salary) as 'Nuevo salario' from hr.employees e \n" +
+            "inner join jobs j on (j.job_id = e.job_id)\n" +
+            "group by  e.department_id\n" +
+            "ORDER BY count(e.department_id) DESC;",
+            nativeQuery = true)
+    List<SalarioxDptoDto> tentativaAumento();
 }
