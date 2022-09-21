@@ -12,34 +12,36 @@
 <body>
 <div class="container">
     <h1>Historial de Empleados</h1>
-    <form class="input-group mb-lg-3" method="post" th:action="@{}">                <!-- COMPLETAR -->
+    <form class="input-group mb-lg-3" method="post">                <!-- COMPLETAR -->
         <!-- COMPLETAR -->
 
         <div class="input-group-append">
 
 
-            </div>
         </div>
     </form>
 
     <!-- COMPLETAR -->
     <!-- COMPLETAR -->
-    <table class="table table-sm" th:if="${}">
+    <table class="table table-sm" >
         <thead>
         <tr>
-            <td>Nombre</td>
-            <td>Apellido</td>
+            <td>Nombre Completo</td>
             <td>Puesto</td>
             <td>Departamento</td>
+            <td>Jefe</td>
             <td>Fecha Inicio</td>
+            <td>Fecha Fin</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="employee : ${lista}">
-            <td th:text="${employee.getFirstName()}"></td>
-            <td th:text="${employee.getLastName()}"></td>
-            <!--<td th:text="${employee.getJobs().getJobTittle()}"></td>-->
-            <td th:text="${employee.getDepartament().getDepartmentName()}"></td>
+        <tr th:each="empleadoDto : ${listaHistorial}">
+            <td th:text="${empleadoDto.getNombre_completo()}"></td>
+            <td th:text="${empleadoDto.getPuesto()}"></td>
+            <td th:text="${empleadoDto.getDepartamento()}"></td>
+            <td th:text="${empleadoDto.getJefe()}"></td>
+            <td th:text="${empleadoDto.getFecha_inicio()}"></td>
+            <td th:text="${empleadoDto.getFecha_fin()}"></td>
         </tr>
         </tbody>
     </table>
