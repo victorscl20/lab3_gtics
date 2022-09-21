@@ -48,7 +48,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="employee, vEst : ${employeesList}">
+                    <tr th:each="employee, vEst : ${employeeList}">
                         <td th:text="${vEst.index + 1}"></td>
                         <td th:text="${employee.getFirstName()}"></td>
                         <td th:text="${employee.getLastName()}"></td>
