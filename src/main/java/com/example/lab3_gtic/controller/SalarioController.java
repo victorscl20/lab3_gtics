@@ -20,4 +20,10 @@ public class SalarioController {
         return "Search/reporteSalario";
     }
 
+    @GetMapping("pordepartamento")
+    public String salariopordepartamento(Model model) {
+        model.addAttribute("listaSalarioPorDepa",jobRepository.obtenerMySalarioxDptoDto());
+        return "Search/reporteSalarioxDepa";
+    }
+
 }
