@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    <title>Historial de Empleados</title>
+</head>
+<body>
+<div class="container">
+    <h1>Historial de Empleados</h1>
+    <form class="input-group mb-lg-3" method="post" th:action="@{}">                <!-- COMPLETAR -->
+        <!-- COMPLETAR -->
+        <div class="input-group-append">
+            <!-- COMPLETAR -->
+        </div>
+    </form>
+
+    <!-- COMPLETAR -->
+    <!-- COMPLETAR -->
+    <table class="table table-sm" th:if="${}">
+        <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Puesto</td>
+            <td>Departamento</td>
+            <td>Fecha Inicio</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${lista}">
+            <td th:text="${employee.getFirstName()}"></td>
+            <td th:text="${employee.getLastName()}"></td>
+            <!--<td th:text="${employee.getJobs().getJobTittle()}"></td>-->
+            <td th:text="${employee.getDepartament().getDepartmentName()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

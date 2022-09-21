@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Empleado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav th:replace="index.html :: nav"></nav>
+
+<div class="container">
+    <h2>Editar Empleado</h2>
+    <hr/>
+    <form method="post" th:action="@{/employee/save}" th:object="${employee}">
+        <input th:field="*{employeeId}" type="hidden"/>
+        <div class="row">
+
+            <input class="form-control" type="hidden" th:field="*{employeeId}">
+
+            <div class="form-group col-6">
+
+                <label>Nombre</label>
+                <input class="form-control" type="text" th:field="*{firstName}">
+
+            </div>
+            <div class="form-group col-6">
+                <label>Apellido</label>
+                <input class="form-control" type="text"  th:field="*{lastName}">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-6">
+                <label>Email</label>
+                <input class="form-control" type="text" th:field="*{email}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-6">
+                <label>Puesto</label>
+                <select class="custom-select" th:field="*{job.jobId}">
+                    <option th:each="job : ${jobs}" th:value="${job.getJobId()}"
+                            th:text="${job.getJobTitle()}"></option>
+                </select>
+            </div>
+            <div class="form-group col-6">
+                <label for="salary">salary</label>
+                <input class="form-control" type="number" id="salary" name="salary" th:field="*{salary}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-6">
+                <label>Jefe</label>
+                <select class="custom-select" th:field="*{managerId}">
+                    <option th:each="manager : ${managers}" th:value="${manager.getManagerId()}"
+                            th:text="${manager.getFirstName()} + ' ' + ${manager.getLastName()}"></option>
+                </select>
+            </div>
+            <div class="form-group col-6">
+                <label>Departamento</label>
+                <select class="custom-select" th:field="*{departament.departmentId}">
+                    <option th:each="department : ${departaments}" th:value="${department.getDepartmentId()}"
+                            th:text="${department.getDepartmentName()}"></option>
+                </select>
+            </div>
+        </div>
+
+        <a th:href="@{/employee/list}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <div class="row">
+            <div class="form-group"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
