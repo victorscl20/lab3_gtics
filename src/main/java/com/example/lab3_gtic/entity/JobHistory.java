@@ -1,4 +1,4 @@
-package entity;
+package com.example.lab3_gtic.entity;
 
 import javax.persistence.*;
 import java.time.Instant;
