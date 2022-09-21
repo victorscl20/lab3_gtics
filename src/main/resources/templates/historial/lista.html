@@ -14,8 +14,17 @@
     <h1>Historial de Empleados</h1>
     <form class="input-group mb-lg-3" method="post" th:action="@{}">                <!-- COMPLETAR -->
         <!-- COMPLETAR -->
+
         <div class="input-group-append">
+            <div class="col-9 justify-content-around">
+                <input type="text" class="form-control" th:value="${texto}" placeholder="Texto a buscar" name="textBuscador">
+            </div>
             <!-- COMPLETAR -->
+            <div class="col-auto justify-content-end">
+                <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                <a class="btn btn-outline-danger" th:href="@{/history/listar}" >Limpiar</a>
+
+            </div>
         </div>
     </form>
 
