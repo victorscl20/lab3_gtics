@@ -21,6 +21,17 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
             "order by e.first_name ASC;", nativeQuery = true)
     List<Employee> historialEmployees();
 
-    @Query()
+    @Query(value ="select distinct(concat(e.first_name,\" \",e.last_name)) as Nombre_completo, j.job_title as Puesto, \n" +
+            " d.department_name as Departamento,\n" +
+            " concat(jf.first_name,\" \",jf.last_name) as Jefe,\n" +
+            " jh.start_date as Fecha_inicio,\n" +
+            " jh.end_date as Fecha_fin\n" +
+            " from employees e\n" +
+            "left join jobs j on (e.job_id = j.job_id)\n" +
+            "left join departments d on (e.department_id=d.department_id)\n" +
+            "left join employees jf on (e.manager_id=jf.employee_id)\n" +
+            "left join job_history jh on (jh.employee_id=e.employee_id)\n" +
+            "group by e.employee_id\n" +
+            "order by jh.start_date;",nativeQuery = true)
     List<HistoryDto> obtenerHistory();
 }
