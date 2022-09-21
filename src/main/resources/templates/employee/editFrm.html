@@ -45,7 +45,7 @@
             <div class="form-group col-6">
                 <label>Puesto</label>
                 <select class="custom-select" th:field="*{job.jobId}">
-                    <option th:each="job : ${jobs}" th:value="${job.getJobId()}"
+                    <option th:each="job : ${listaJobs}" th:value="${job.getJobId()}"
                             th:text="${job.getJobTitle()}"></option>
                 </select>
             </div>
@@ -59,14 +59,14 @@
             <div class="form-group col-6">
                 <label>Jefe</label>
                 <select class="custom-select" th:field="*{managerId}">
-                    <option th:each="manager : ${managers}" th:value="${manager.getManagerId()}"
+                    <option th:each="manager : ${listaJefes}" th:value="${manager.getManagerId()}"
                             th:text="${manager.getFirstName()} + ' ' + ${manager.getLastName()}"></option>
                 </select>
             </div>
             <div class="form-group col-6">
                 <label>Departamento</label>
                 <select class="custom-select" th:field="*{departament.departmentId}">
-                    <option th:each="department : ${departaments}" th:value="${department.getDepartmentId()}"
+                    <option th:each="department : ${listaDepartments}" th:value="${department.getDepartmentId()}"
                             th:text="${department.getDepartmentName()}"></option>
                 </select>
             </div>
