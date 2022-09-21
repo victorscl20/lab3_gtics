@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Departamentos por País y Ciudad</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav th:replace="index.html :: nav"></nav>
+
+<div class="container">
+    <h2>Reporte de Departamentos por País y Ciudad</h2>
+    <a class="btn btn-success" th:href="@{/search/}">Regresar</a>
+
+    <table class="table table-sm">
+        <tr>
+            <th>País</th>
+            <th>Ciudad</th>
+            <th>Cantidad</th>
+        </tr>
+        <tr th:each=" lista: ${listadepartamentoxPaísYciudad}">
+            <div th:if="${lista.getCantidadDepartment() > 3}">
+                <td th:text="${lista.getCountryname()}"></td>
+                <td th:text="${lista.getCiudadname()}"></td>
+                <td th:text="${lista.getCantidadDepartment()}"></td>
+            </div>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+

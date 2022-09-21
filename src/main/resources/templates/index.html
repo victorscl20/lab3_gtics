@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+<nav class="navbar navbar-light mb-3" style="background-color: #e3f2fd;" th:fragment="nav">
+    <div class="container-fluid">
+        <h1 class="navbar-brand">Recursos Humanos - TravelTrip</h1>
+        <div class="form-check-inline">
+            <a th:href="@{/employee/list}" class="nav-link active">Empleados</a><br/>
+            <a th:href="@{/historial/listar}" class="nav-link">Historial</a><br/>
+            <a th:href="@{/search/}" class="nav-link">Reportes</a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>
