@@ -1,6 +1,7 @@
 package com.example.lab3_gtic.repository;
 
 import com.example.lab3_gtic.entity.Employee;
+import com.example.lab3_gtic.entity.HistoryDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -19,4 +20,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
             "\t\tand e.job_id = j.job_id \n" +
             "order by e.first_name ASC;", nativeQuery = true)
     List<Employee> historialEmployees();
+
+    @Query()
+    List<HistoryDto> obtenerHistory();
 }
