@@ -8,13 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HistoryController {
-    @Autowired
-    EmployeeRepository employeeRepository;
-    @GetMapping("/historial")
-    public String listaEmployee(Model model){
-        model.addAtribute("listaHistory",employeeRepository.);
-        return  "/historial/lista";
-    }
 
 
 }
