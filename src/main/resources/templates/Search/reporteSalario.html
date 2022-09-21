@@ -16,18 +16,22 @@
     <h2>Reporte de Departamentos por País y Ciudad</h2>
     <a class="btn btn-success" th:href="@{/search/}">Regresar</a>
 
-    <table class="table table-sm">
+    <table class="table table-dark table-striped">
         <tr>
-            <th>País</th>
-            <th>Ciudad</th>
-            <th>Cantidad</th>
+            <th class="text-center">Puesto</th>
+            <th class="text-center">Salario Maximo</th>
+            <th class="text-center">Salario Minimo</th>
+            <th class="text-center">Salario Total</th>
+            <th class="text-center">Salario Promedio</th>
+
         </tr>
-        <tr th:each=" lista: ${listadepartamentoxPaísYciudad}">
-            <div th:if="${lista.getCantidadDepartment() > 3}">
-                <td th:text="${lista.getCountryname()}"></td>
-                <td th:text="${lista.getCiudadname()}"></td>
-                <td th:text="${lista.getCantidadDepartment()}"></td>
-            </div>
+        <tr th:each="sal, info : ${listaSalario}" >
+            <td th:text="${sal.getJobtitle()}" class="text-center" ></td>
+            <td th:text="${sal.getMax()}" class="text-center" ></td>
+            <td th:text="${sal.getMin()}" class="text-center" ></td>
+            <td th:text="${sal.getSuma()}" class="text-center" ></td>
+            <td th:text="${sal.getPromedio()}" class="text-center" ></td>
+
         </tr>
     </table>
 </div>
