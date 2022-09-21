@@ -10,8 +10,18 @@
     <title>Historial de Empleados</title>
 </head>
 <body>
+<nav class="navbar navbar-light mb-3" style="background-color: #e3f2fd;" th:fragment="nav">
+    <div class="container-fluid">
+        <h1 class="navbar-brand">Recursos Humanos - TravelTrip</h1>
+        <div class="form-check-inline">
+            <a th:href="@{/employee/list}" class="nav-link active">Empleados</a><br/>
+            <a th:href="@{/history}" class="nav-link">Historial</a><br/>
+            <a th:href="@{/search/}" class="nav-link">Reportes</a>
+        </div>
+    </div>
+</nav>
 <div class="container">
-    <h1>Historial de Empleados</h1>
+    <h1>Historial RRHH en TravelTrip</h1>
     <form class="input-group mb-lg-3" method="post">                <!-- COMPLETAR -->
         <!-- COMPLETAR -->
 
@@ -26,12 +36,12 @@
     <table class="table table-sm" >
         <thead>
         <tr>
-            <td>Nombre Completo</td>
-            <td>Puesto</td>
-            <td>Departamento</td>
-            <td>Jefe</td>
-            <td>Fecha Inicio</td>
-            <td>Fecha Fin</td>
+            <th>Nombre Completo</th>
+            <th>Puesto</th>
+            <th>Departamento</th>
+            <th>Jefe</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
         </tr>
         </thead>
         <tbody>
